@@ -22,7 +22,6 @@ public class StrukturQueue {
             rear.setNext(newNode);
             rear = newNode;
         }
-        System.out.println("Pelanggan berhasil ditambahkan ke antrean.");
         FileUtil.saveToFile(this);
     }
 
