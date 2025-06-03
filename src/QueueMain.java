@@ -3,11 +3,13 @@ package tubes;
 import java.util.Scanner;
 import tubes.entity.Pelanggan;
 import tubes.services.StrukturQueue;
+import tubes.util.FileUtil;
 
 public class QueueMain {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         StrukturQueue antrean = new StrukturQueue();
+        FileUtil.loadFromFile(antrean);
 
         int pilihan;
 
@@ -21,7 +23,7 @@ public class QueueMain {
             System.out.println("6. Keluar");
             System.out.print("Pilih menu: ");
             String inputPilihan = input.nextLine();
-            if (inputPilihan.matches("\d+")) {
+            if (inputPilihan.matches("\\d+")) {
                 pilihan = Integer.parseInt(inputPilihan);
             } else {
                 pilihan = -1;
@@ -57,4 +59,4 @@ public class QueueMain {
 
         input.close();
     }
-}
+} 
