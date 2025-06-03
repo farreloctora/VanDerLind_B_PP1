@@ -22,6 +22,14 @@ public class Pelanggan {
         this.idAntrean = idAntrean;
     }
 
+    public static void resetCounter() {
+        counter = 1;
+    }
+
+    public static void setCounter(int value) {
+        counter = value;
+    }
+
     public String toString() {
         return "ID Antrean: " + idAntrean + ", Nama Pelanggan: " + nama;
     }
