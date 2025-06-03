@@ -1,13 +1,17 @@
 package tubes.services;
 
-import java.io.*;
 import tubes.entity.Pelanggan;
+import tubes.util.FileUtil;
 
 public class StrukturQueue {
     private Node front, rear;
 
     public boolean isEmpty() {
         return front == null;
+    }
+
+    public Node getFront() {
+        return front;
     }
 
     public void enqueue(Pelanggan data) {
@@ -19,6 +23,7 @@ public class StrukturQueue {
             rear = newNode;
         }
         System.out.println("Pelanggan berhasil ditambahkan ke antrean.");
+        FileUtil.saveToFile(this);
     }
 
     public void dequeue() {
@@ -30,6 +35,7 @@ public class StrukturQueue {
             if (front == null) {
                 rear = null;
             }
+            FileUtil.saveToFile(this);
         }
     }
 
@@ -63,5 +69,6 @@ public class StrukturQueue {
         rear = null;
         Pelanggan.resetCounter();
         System.out.println("Antrean telah direset.");
+        FileUtil.saveToFile(this);
     }
-}
+} 
