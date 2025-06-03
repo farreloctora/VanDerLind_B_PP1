@@ -32,4 +32,36 @@ public class StrukturQueue {
             }
         }
     }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Antrean kosong.");
+        } else {
+            System.out.println("=== Daftar Pelanggan dalam Antrean ===");
+            Node current = front;
+            int no = 1;
+            while (current != null) {
+                System.out.println(no + ". " + current.getData().toString());
+                current = current.getNext();
+                no++;
+            }
+        }
+    }
+
+    public int size() {
+        int count = 0;
+        Node current = front;
+        while (current != null) {
+            count++;
+            current = current.getNext();
+        }
+        return count;
+    }
+
+    public void resetQueue() {
+        front = null;
+        rear = null;
+        Pelanggan.resetCounter();
+        System.out.println("Antrean telah direset.");
+    }
 }
